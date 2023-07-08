@@ -20,6 +20,7 @@ import java.util.List;
  */
 public class FirstFragment extends Fragment {
     private FragmentFirstBinding binding;
+    List<String> data = getData();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,13 +69,25 @@ public class FirstFragment extends Fragment {
         Adapter adapter = new Adapter();
         adapter.setData(getData());
         binding.recyclerView.setAdapter(adapter);
+        initListeners();
         return binding.getRoot();
     }
+
+    private void initListeners() {
+        binding.floatingButtonWorld.setOnClickListener(v -> {
+        data.add("World " + data.size());
+        binding.recyclerView.getAdapter().notifyItemInserted(data.size());
+        binding.recyclerView.smoothScrollToPosition(data.size());
+
+    });
+
+    }
+
     public List<String> getData(){
-        List<String>data = new ArrayList<>();
+        List<String>world = new ArrayList<>();
         for (int i=0; i<20; i++){
-            data.add("Word " + i);
+            world.add("World " + i);
         }
-        return data;
+        return world;
     }
 }
