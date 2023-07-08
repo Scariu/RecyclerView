@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B0BF7A"
+    android:background="@drawable/estrellasuniv"
     tools:context=".FirstFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -19,15 +19,17 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingButtonWorld"
-        android:layout_width="69dp"
-        android:layout_height="71dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#A7E7F6"
         android:clickable="true"
         android:contentDescription="Agregar elemento a lista"
-        android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="#A7E7F6"
+        android:src="@drawable/world"
+        app:backgroundTint="#BFBFBF"
+        app:fabCustomSize="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="50dp"
+        app:tint="#4A1259" />
 </androidx.constraintlayout.widget.ConstraintLayout>
