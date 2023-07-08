@@ -14,9 +14,8 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private List<String> words;
     @NonNull
-    @Override
     //Implementación del Adapter con estos 3 metodos
-
+    @Override
     //Crea un nuevo ViewHolder
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemBinding binding = ItemBinding.inflate(LayoutInflater.from(parent.getContext()));
@@ -24,7 +23,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     @Override
+    //Enlaza información
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
+        String item = words.get(position);
+        holder.bind(item);
 
     }
 
@@ -34,8 +36,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private ItemBinding itemBinding;
         public ViewHolder(@NonNull ItemBinding binding) {
             super(binding.getRoot());
+            itemBinding = binding;//Se inicializa para usar el parámetro
+        }
+        //Para que viewHolder reciba información y la pueda mostrar
+        public void bind(String words){
+            itemBinding.textViewItem.setText(words);
         }
     }
 }
