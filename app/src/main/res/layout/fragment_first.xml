@@ -31,5 +31,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:maxImageSize="50dp"
-        app:tint="#4A1259" />
+        app:tint="#1B1B45" />
 </androidx.constraintlayout.widget.ConstraintLayout>
