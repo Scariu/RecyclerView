@@ -41,21 +41,25 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.world = data;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ItemBinding itemBinding;
         public ViewHolder(@NonNull ItemBinding binding) {
             super(binding.getRoot());
             itemBinding = binding;//Se inicializa para usar el parámetro
-            binding.cardView.setOnClickListener(v -> {
-                int position = getLayoutPosition();
-                String cualWorld = world.get(position);
-                Toast.makeText(itemView.getContext(), "Se seleccionó " + cualWorld, Toast.LENGTH_LONG).show();
-            } );
+            itemView.setOnClickListener(this);
         }
 
         //Para que viewHolder reciba información y la pueda mostrar
-        public void bind(String words){
-            itemBinding.textViewItem.setText(words);
+        public void bind(String worlds){
+            itemBinding.textViewItem.setText(worlds);
+        }
+
+        public void onClick(View v){
+                int position = getLayoutPosition();
+                String item = world.get(position);
+                world.set(position, "Clicked " + item);
+                notifyDataSetChanged();
+               // Toast.makeText(itemView.getContext(), "Se seleccionó " + item, Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -66,13 +66,16 @@ public class FirstFragment extends Fragment {
                              Bundle savedInstanceState) {
         //FragmentFirstBinding binding = FragmentFirstBinding.inflate(getActivity().getLayoutInflater());
         binding = FragmentFirstBinding.inflate(getLayoutInflater(), container, false);
-        Adapter adapter = new Adapter();
-        adapter.setData(getData());
-        binding.recyclerView.setAdapter(adapter);
         initListeners();
+        initRecycler();
         return binding.getRoot();
     }
+public void initRecycler(){
+    Adapter adapter = new Adapter();
+    adapter.setData(getData());
+    binding.recyclerView.setAdapter(adapter);
 
+}
     private void initListeners() {
         binding.floatingButtonWorld.setOnClickListener(v -> {
         data.add("World " + data.size());
