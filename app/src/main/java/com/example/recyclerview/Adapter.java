@@ -32,7 +32,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
         String item = world.get(position);
         holder.bind(item);
-
+        ItemBinding binding = ItemBinding.bind(holder.itemView);
+        holder.itemView.setOnClickListener(v -> {
+            binding.textViewItem.setText("Clicked " + item);
+                /*TextView textView = holder.itemView.findViewById(R.id.textViewItem);
+                textView.setText("Clicked " + item);*/
+        });
     }
 
     @Override
