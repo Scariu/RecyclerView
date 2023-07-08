@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,23 +67,28 @@ public class FirstFragment extends Fragment {
                              Bundle savedInstanceState) {
         //FragmentFirstBinding binding = FragmentFirstBinding.inflate(getActivity().getLayoutInflater());
         binding = FragmentFirstBinding.inflate(getLayoutInflater(), container, false);
-        initListeners();
         initRecycler();
+        initListeners();
         return binding.getRoot();
     }
-public void initRecycler(){
-    Adapter adapter = new Adapter();
-    adapter.setData(getData());
-    binding.recyclerView.setAdapter(adapter);
 
-}
+    public void initRecycler() {
+        Adapter adapter = new Adapter();
+        adapter.setData(data);
+        binding.recyclerView.setAdapter(adapter);
+
+    }
+
     private void initListeners() {
-        binding.floatingButtonWorld.setOnClickListener(v -> {
-        data.add("World " + data.size());
-        binding.recyclerView.getAdapter().notifyItemInserted(data.size());
-        binding.recyclerView.smoothScrollToPosition(data.size());
-
-    });
+        binding.floatingButtonWorld.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("clickclick", "");
+                data.add("World " + data.size());
+                binding.recyclerView.getAdapter().notifyItemInserted(data.size());
+                binding.recyclerView.smoothScrollToPosition(data.size());
+            }
+        });
 
     }
 

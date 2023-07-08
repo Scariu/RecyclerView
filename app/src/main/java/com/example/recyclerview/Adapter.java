@@ -14,6 +14,7 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private List<String> world;
+
     @NonNull
     //Implementación del Adapter con estos 3 metodos
     @Override
@@ -22,6 +23,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         ItemBinding binding = ItemBinding.inflate(LayoutInflater.from(parent.getContext()));
         return new ViewHolder(binding);
     }
+
 
     @Override
     //Enlaza información
