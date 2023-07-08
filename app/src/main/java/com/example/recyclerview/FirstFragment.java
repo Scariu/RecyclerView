@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.recyclerview.databinding.FragmentFirstBinding;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FirstFragment#newInstance} factory method to
@@ -62,6 +65,16 @@ public class FirstFragment extends Fragment {
                              Bundle savedInstanceState) {
         //FragmentFirstBinding binding = FragmentFirstBinding.inflate(getActivity().getLayoutInflater());
         binding = FragmentFirstBinding.inflate(getLayoutInflater(), container, false);
+        Adapter adapter = new Adapter();
+        adapter.setData(getData());
+        binding.recyclerView.setAdapter(adapter);
         return binding.getRoot();
+    }
+    public List<String> getData(){
+        List<String>data = new ArrayList<>();
+        for (int i=0; i<20; i++){
+            data.add("Word" + i);
+        }
+        return data;
     }
 }

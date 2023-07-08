@@ -35,6 +35,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         return words.size();
     }
 
+//Enlace ente data y adapter
+    public void setData(List<String> data) {
+        this.words = data;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ItemBinding itemBinding;
         public ViewHolder(@NonNull ItemBinding binding) {
