@@ -6,9 +6,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
+    private List<String> words;
     @NonNull
     @Override
+    //Implementación del Adapter
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return null;
     }
@@ -20,7 +24,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return words.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
