@@ -73,7 +73,7 @@ public class FirstFragment extends Fragment {
     public List<String> getData(){
         List<String>data = new ArrayList<>();
         for (int i=0; i<20; i++){
-            data.add("Word" + i);
+            data.add("Word " + i);
         }
         return data;
     }
